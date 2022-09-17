@@ -1,0 +1,16 @@
+# defining main function which takes one argument "temp_data" and returns
+# either median or N/A
+def main(temp_data):
+
+    try:
+        # calling extract_temps function
+        y= extract_temps(temp_data)
+        #calling selection_sort function and inputting list of floats 
+        x= selection_sort(y)
+        #calling calculate_median function and inputting sorted list 
+        mid = calculate_median(x)
+        # returning median value
+        return mid
+    # if error occurs, prgram will print N/A
+    except:
+        return "N/A"
