@@ -1,0 +1,14 @@
+# defining calculate_median function which takes one argument "temps" and
+# returns list of floats
+def extract_temps(temps):
+    # create a new empty array
+    new_temps=[]
+    for temp in temps:
+        try:
+            # appending each value in list to become a float value
+            new_temps.append(float(temp))
+        except:
+            # continue is value is string
+            continue
+    # returning list of float values without strings
+    return new_temps
