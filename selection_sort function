@@ -1,0 +1,19 @@
+# defining selection_sort function which takes one argument "nums" and 
+# returns sorted list 
+def selection_sort(nums):
+    # create a copy for nums
+    new_arr = nums.copy()
+    # setting n to array length
+    n = len(new_arr)
+    # applying selection sort to the array to sort it
+    # traverse through all array elements
+    for i in range(n):
+        min_index=i
+        # Find the minimum element in remaining unsorted array
+        for j in range(i,n):
+            if new_arr[j]<new_arr[min_index]:
+                min_index=j
+        # Swap minimum element with the first element
+        new_arr[i], new_arr[min_index]=new_arr[min_index], new_arr[i]
+    # returing sorted list
+    return new_arr
