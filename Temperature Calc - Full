@@ -1,0 +1,84 @@
+# defining selection_sort function which takes one argument "nums" and 
+# returns sorted list 
+def selection_sort(nums):
+    # create a copy for nums
+    new_arr = nums.copy()
+    # setting n to array length
+    n = len(new_arr)
+    # applying selection sort to the array to sort it
+    # traverse through all array elements
+    for i in range(n):
+        min_index=i
+        # Find the minimum element in remaining unsorted array
+        for j in range(i,n):
+            if new_arr[j]<new_arr[min_index]:
+                min_index=j
+        # Swap minimum element with the first element
+        new_arr[i], new_arr[min_index]=new_arr[min_index], new_arr[i]
+    # returing sorted list
+    return new_arr
+
+# defining calculate_median function which takes one argument "temps" and
+# returns list of floats
+def extract_temps(temps):
+    # create a new empty array
+    new_temps=[]
+    for temp in temps:
+        try:
+            # appending each value in list to become a float value
+            new_temps.append(float(temp))
+        except:
+            # continue is value is string
+            continue
+    # returning list of float values without strings
+    return new_temps
+
+# defining calculate_median function which takes one argument "nums" and
+# returns median 
+def calculate_median(nums):
+    
+    n=len(nums)
+    
+    median_1 = n//2
+    median_2 = n//2 - 1
+    # finidng if length of list is even or odd
+    if n % 2 == 0:
+        # if odd, median is average of two mid elements
+        return (nums[median_1]+nums[median_2])/2
+    else:
+        # if even, median is central element once sorted
+        return(nums[median_1])
+        
+# defining main function which takes one argument "temp_data" and returns
+# either median or N/A
+def main(temp_data):
+
+    try:
+        # calling extract_temps function
+        y= extract_temps(temp_data)
+        #calling selection_sort function and inputting list of floats 
+        x= selection_sort(y)
+        #calling calculate_median function and inputting sorted list 
+        mid = calculate_median(x)
+        # returning median value
+        return mid
+    # if error occurs, prgram will print N/A
+    except:
+        return "N/A"
+ 
+temps = ["5","","5.5","6.2","4.5","N/A","Not Recorded","5.67"]
+print("Given Temps:",temps)
+print("Median:",main(temps))
+print("-----")
+temps = ["5","N/A","5"]
+print("Given Temps:",temps)
+print("Median:",main(temps))
+print("-----")
+temps = ["-10","",""]
+print("Given Temps:",temps)
+print("Median:",main(temps))
+print("-----")
+temps = ["","",""]
+print("Given Temps:",temps)
+print("Median:",main(temps))
+print("-----")
