@@ -1,0 +1,15 @@
+# defining calculate_median function which takes one argument "nums" and
+# returns median 
+def calculate_median(nums):
+    
+    n=len(nums)
+    
+    median_1 = n//2
+    median_2 = n//2 - 1
+    # finidng if length of list is even or odd
+    if n % 2 == 0:
+        # if odd, median is average of two mid elements
+        return (nums[median_1]+nums[median_2])/2
+    else:
+        # if even, median is central element once sorted
+        return(nums[median_1])
